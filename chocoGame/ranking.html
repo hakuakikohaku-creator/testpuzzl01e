@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ChocoGame - ランキング</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <div id="ranking-container">
+        <h1 class="page-title">ランキング</h1>
+
+        <ul id="ranking-list"></ul>
+
+        <button class="menu-btn back-btn" onclick="location.href='index.html'">戻る</button>
+    </div>
+</div>
+
+<script>
+function loadRanking() {
+    const level = localStorage.getItem("choco_level") || "easy";
+    const key = `choco_rank_${level}`;
+
+    const list = JSON.parse(localStorage.getItem(key) || "[]");
+    const ul = document.getElementById("ranking-list");
+
+    ul.innerHTML = "";
+
+    list.forEach((t) => {
+        const li = document.createElement("li");
+        li.textContent = t;
+        ul.appendChild(li);
+    });
+}
+
+loadRanking();
+</script>
+</body>
+</html>
