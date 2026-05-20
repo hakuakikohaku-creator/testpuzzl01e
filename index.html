@@ -2,21 +2,34 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ChocoGame - タイトル</title>
+    <title>ChocoGame - Title</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="wrapper">
-    <div id="title-container">
-        <h1 id="title-text">ChocoGame</h1>
 
-        <button class="menu-btn" onclick="location.href='select.html'">
-            ゲームスタート
-        </button>
-        <button class="menu-btn" onclick="location.href='ranking.html'">
-            ランキング
-        </button>
+<div class="wrapper">
+
+    <div class="title-container">
+        <h1>ChocoGame</h1>
+        <button id="startBtn">ゲームをはじめる</button>
     </div>
+
 </div>
+
+<script src="js/storage.js"></script>
+<script>
+    document.getElementById("startBtn").addEventListener("click", () => {
+
+        // 初回 → プロローグ
+        if (!getFlag("prologue_seen")) {
+            location.href = "prologue.html";
+            return;
+        }
+
+        // 2回目以降 → メニュー
+        location.href = "menu.html";
+    });
+</script>
+
 </body>
 </html>

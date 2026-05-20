@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>設定 - フラグ管理</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <h1>設定（フラグ管理）</h1>
+
+    <p>ゲームの進行状況を手動で変更できます。</p>
+
+    <button onclick="resetAll()">初回起動に戻す</button>
+    <button onclick="setStage1()">ステージ1クリア状態にする</button>
+    <button onclick="setStage2()">ステージ2クリア状態にする</button>
+    <button onclick="setStage3()">ステージ3クリア状態にする</button>
+
+    <button onclick="location.href='menu.html'">メニューへ戻る</button>
+    <button onclick="location.href='index.html'">タイトルに戻る</button>
+
+</div>
+
+<script src="js/storage.js"></script>
+<script>
+
+    // 全フラグリセット（完全初期化）
+    function resetAll() {
+        removeFlag("prologue_seen");
+        removeFlag("stage1_clear");
+        removeFlag("stage2_clear");
+        removeFlag("stage3_clear");
+
+        alert("初回起動状態に戻しました。すべてのステージが未クリアになります。");
+    }
+
+    // ステージフラグを一度全部消す
+    function clearStageFlags() {
+        removeFlag("stage1_clear");
+        removeFlag("stage2_clear");
+        removeFlag("stage3_clear");
+    }
+
+    // ステージ1クリア状態
+    function setStage1() {
+        clearStageFlags();
+        setFlag("stage1_clear");
+        alert("ステージ1までクリア状態にしました。（2と3は未クリア）");
+    }
+
+    // ステージ2クリア状態
+    function setStage2() {
+        clearStageFlags();
+        setFlag("stage1_clear");
+        setFlag("stage2_clear");
+        alert("ステージ2までクリア状態にしました。（3は未クリア）");
+    }
+
+    // ステージ3クリア状態
+    function setStage3() {
+        clearStageFlags();
+        setFlag("stage1_clear");
+        setFlag("stage2_clear");
+        setFlag("stage3_clear");
+        alert("ステージ3までクリア状態にしました。");
+    }
+
+</script>
+
+</body>
+</html>

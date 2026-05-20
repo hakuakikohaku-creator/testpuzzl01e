@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Stage2 - Outro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/movie.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- Scene 1 -->
+    <div class="scene">
+        <img src="../img/stage2/outro/scene1.png" class="fade-img">
+        <p class="fade-text">
+            最後の石がカチッとはまると、<br>
+            重い扉がゆっくりと開いた。
+        </p>
+    </div>
+
+    <!-- Scene 2 -->
+    <div class="scene">
+        <img src="../img/stage2/outro/scene2.png" class="fade-img">
+        <p class="fade-text">
+            その先には――<br><br>
+            青く光る神秘の湖が広がっていた。
+        </p>
+    </div>
+
+    <!-- Scene 3 -->
+    <div class="scene">
+        <img src="../img/stage2/outro/scene3.png" class="fade-img">
+        <p class="fade-text">
+            洞窟の天井から差し込む光が水面に反射し、<br>
+            壁一面に揺れる模様を描き出す。
+        </p>
+    </div>
+
+    <!-- Scene 4 -->
+    <div class="scene">
+        <img src="../img/stage2/outro/scene4.png" class="fade-img">
+        <p class="fade-text">
+            「きれい……静かで、ずっとここにいたくなる」<br><br>
+            女の子は湖のそばに座り、<br>
+            しばらく心が落ち着く時間を楽しんだ。
+        </p>
+    </div>
+
+    <button id="nextBtn" class="next-btn">ステージセレクトへ</button>
+
+</div>
+
+<script src="../js/storage.js"></script>
+<script>
+    const scenes = document.querySelectorAll(".scene");
+    let index = 0;
+
+    scenes[0].classList.add("show");
+
+    document.body.addEventListener("click", () => {
+        if (index >= scenes.length - 1) return;
+
+        scenes[index].classList.remove("show");
+        scenes[index].classList.add("hide");
+
+        index++;
+        scenes[index].classList.add("show");
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        setFlag("stage2_clear");
+        location.href = "../select.html";
+    });
+</script>
+
+</body>
+</html>

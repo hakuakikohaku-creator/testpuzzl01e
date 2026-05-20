@@ -2,27 +2,74 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ChocoGame - 難易度選択</title>
+    <title>ChocoGame - Stage Select</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/select.css">
 </head>
-<body>
-<div class="wrapper">
-    <div id="select-container">
-        <h1 class="page-title">難易度を選択</h1>
+<body class="select-screen">
 
-        <button class="menu-btn" onclick="selectLevel('easy')">やさしい（3×3）</button>
-        <button class="menu-btn" onclick="selectLevel('normal')">ふつう（4×4）</button>
-        <button class="menu-btn" onclick="selectLevel('hard')">むずかしい（5×5）</button>
+    <div class="wrapper">
 
-        <button class="menu-btn back-btn" onclick="location.href='index.html'">戻る</button>
-    </div>
-</div>
+        <h1>ステージセレクト</h1>
 
-<script>
-function selectLevel(level) {
-    localStorage.setItem("choco_level", level);
-    location.href = "puzzle.html";
-}
-</script>
+        <div class="stage-buttons-vertical">
+
+            <button onclick="location.href='prologue.html'">
+                プロローグ（見返し）
+            </button>
+
+            <button onclick="location.href='stage1/intro.html'">
+                ステージ1
+            </button>
+
+            <button id="stage2Btn" disabled>
+                ステージ2（ロック）
+            </button>
+
+            <button id="stage3Btn" disabled>
+                ステージ3（ロック）
+            </button>
+
+            <button id="epilogueBtn" disabled>
+                エピローグ（ロック）
+            </button>
+
+        </div>
+
+        <div class="back-menu-area">
+            <button class="back-menu-btn" onclick="location.href='menu.html'">
+                メニューに戻る
+            </button>
+        </div>
+
+    </div><!-- wrapper -->
+
+    <script src="js/storage.js"></script>
+    <script>
+        // ステージ1クリア → ステージ2解放
+        if (getFlag("stage1_clear")) {
+            const s2 = document.getElementById("stage2Btn");
+            s2.disabled = false;
+            s2.textContent = "ステージ2";
+            s2.onclick = () => location.href = "stage2/intro.html";
+        }
+
+        // ステージ2クリア → ステージ3解放
+        if (getFlag("stage2_clear")) {
+            const s3 = document.getElementById("stage3Btn");
+            s3.disabled = false;
+            s3.textContent = "ステージ3";
+            s3.onclick = () => location.href = "stage3/intro.html";
+        }
+
+        // ステージ3クリア → エピローグ解放
+        if (getFlag("stage3_clear")) {
+            const e = document.getElementById("epilogueBtn");
+            e.disabled = false;
+            e.textContent = "エピローグ";
+            e.onclick = () => location.href = "epilogue.html";
+        }
+    </script>
+
 </body>
 </html>

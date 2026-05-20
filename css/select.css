@@ -1,0 +1,30 @@
+.stage-buttons-vertical {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    gap: 12px;
+}
+
+.stage-buttons-vertical button {
+    width: 100%;
+    padding: 14px;
+    font-size: 20px;
+}
+
+/* 下部のメニューに戻るボタン */
+.back-menu-area {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.back-menu-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 20px;
+    background: #4a90e2;   /* ← ステージ1と同じ色 */
+    color: white;
+    border-radius: 8px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Stage2 - Intro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/movie.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- Scene 1 -->
+    <div class="scene">
+        <img src="../img/stage2/intro/scene1.png" class="fade-img">
+        <p class="fade-text">
+            森を抜けると、ひんやりとした空気が漂う石の洞窟が現れた。<br>
+            奥へ進むと、古代の神殿が姿を見せる。
+        </p>
+    </div>
+
+    <!-- Scene 2 -->
+    <div class="scene">
+        <img src="../img/stage2/intro/scene2.png" class="fade-img">
+        <p class="fade-text">
+            左側には“完成形の石の積み木”、<br>
+            右側には“バラバラの積み木”。
+        </p>
+    </div>
+
+    <!-- Scene 3 -->
+    <div class="scene">
+        <img src="../img/stage2/intro/scene3.png" class="fade-img">
+        <p class="fade-text">
+            「これを同じ形にすればいいんだね」
+        </p>
+    </div>
+
+    <!-- Scene 4 -->
+    <div class="scene">
+        <img src="../img/stage2/intro/scene4.png" class="fade-img">
+        <p class="fade-text">
+            女の子は重力魔法を使い、<br>
+            石をふわりと浮かせたり、回転させたりしながら<br>
+            積み木を組み上げていく。
+        </p>
+    </div>
+
+    <button id="nextBtn" class="next-btn">パズルへ進む</button>
+
+</div>
+
+<script src="../js/storage.js"></script>
+<script>
+    const scenes = document.querySelectorAll(".scene");
+    let index = 0;
+
+    scenes[0].classList.add("show");
+
+    document.body.addEventListener("click", () => {
+        if (index >= scenes.length - 1) return;
+
+        scenes[index].classList.remove("show");
+        scenes[index].classList.add("hide");
+
+        index++;
+        scenes[index].classList.add("show");
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        location.href = "game.html";
+    });
+</script>
+
+</body>
+</html>

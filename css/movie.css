@@ -1,0 +1,84 @@
+/* ============================
+   プロローグ画面
+   ============================ */
+body.prologue {
+    background: #111;
+}
+
+/* wrapper 内でシーンを重ねるための設定 */
+.wrapper {
+    position: relative;
+}
+
+/* シーンを重ねて配置（最初は非表示） */
+.scene {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+/* 表示されるシーン */
+.scene.show {
+    opacity: 1;
+}
+
+/* 消えるシーン */
+.scene.hide {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+/* 画像フェード */
+.fade-img {
+    width: 80%;
+    max-width: 420px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInImg 1.2s forwards;
+}
+
+@keyframes fadeInImg {
+    to { opacity: 1; }
+}
+
+/* テキストフェード */
+.fade-text {
+    font-size: 20px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInText 1.6s forwards;
+}
+
+@keyframes fadeInText {
+    to { opacity: 1; }
+}
+
+/* つづけるボタン */
+.next-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 14px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    background: #4a90e2;
+    color: white;
+    cursor: pointer;
+
+    opacity: 0;
+    animation: fadeInNext 2s forwards;
+}
+
+@keyframes fadeInNext {
+    to { opacity: 1; }
+}

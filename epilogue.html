@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Ending</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/movie.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- Scene 1 -->
+    <div class="scene">
+        <img src="img/ending/scene1.png" class="fade-img">
+        <p class="fade-text">
+            テラスの奥に置かれた宝箱を開けると、<br>
+            中には――<br><br>
+            「ピクニックスポットの地図（完全版）」
+        </p>
+    </div>
+
+    <!-- Scene 2 -->
+    <div class="scene">
+        <img src="img/ending/scene2.png" class="fade-img">
+        <p class="fade-text">
+            しかも、3つの場所には<br>
+            “おすすめのおやつ”や“ベストな時間帯”のメモつき。<br><br>
+            「……これ、お宝じゃなくてピクニック案内じゃん」
+        </p>
+    </div>
+
+    <!-- Scene 3 -->
+    <div class="scene">
+        <img src="img/ending/scene3.png" class="fade-img">
+        <p class="fade-text">
+            でも、女の子はふふっと笑った。<br><br>
+            「全部すてきな場所だったし、まあいっか」
+        </p>
+    </div>
+
+    <!-- Scene 4 -->
+    <div class="scene">
+        <img src="img/ending/scene4.png" class="fade-img">
+        <p class="fade-text">
+            そして家に帰ると、<br>
+            さっそくお弁当の準備を始めるのだった。<br><br>
+            次の休日は、どの場所に行こうかな。
+        </p>
+    </div>
+
+    <button id="nextBtn" class="next-btn">タイトルへ戻る</button>
+
+</div>
+
+<script src="js/storage.js"></script>
+<script>
+    const scenes = document.querySelectorAll(".scene");
+    let index = 0;
+
+    scenes[0].classList.add("show");
+
+    document.body.addEventListener("click", () => {
+        if (index >= scenes.length - 1) return;
+
+        scenes[index].classList.remove("show");
+        scenes[index].classList.add("hide");
+
+        index++;
+        scenes[index].classList.add("show");
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        // 全クリアフラグ
+        setFlag("game_clear");
+        location.href = "index.html";
+    });
+</script>
+
+</body>
+</html>

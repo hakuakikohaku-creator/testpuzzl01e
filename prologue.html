@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ChocoGame - Prologue</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/movie.css">
+</head>
+<body class="prologue">
+
+    <div class="wrapper">
+
+        <!-- Scene 1 -->
+        <div class="scene">
+            <img src="img/prologue/library.png" class="fade-img">
+            <p class="fade-text">
+                ある日の午後。<br>
+                小さな魔法の家の書庫で、女の子は古い本を積み上げて遊んでいた。<br><br>
+                ぱさり、と一枚の紙が床に落ちる。
+            </p>
+        </div>
+
+        <!-- Scene 2 -->
+        <div class="scene">
+            <img src="img/prologue/map.png" class="fade-img">
+            <p class="fade-text">
+                「……地図？」<br><br>
+                拾い上げて広げてみると、<br>
+                そこには見たことのない3つのマークが描かれていた。<br><br>
+                風の森、石の洞窟、そして天空の城。
+            </p>
+        </div>
+
+        <!-- Scene 3 -->
+        <div class="scene">
+            <img src="img/prologue/items.png" class="fade-img">
+            <p class="fade-text">
+                「もしかして……お宝の地図！？」<br><br>
+                胸がどきどきして、じっとしていられない。<br>
+                女の子は魔法の杖を手に取り、<br>
+                小さなポシェットにお気に入りのおやつを詰め込んだ。
+            </p>
+        </div>
+
+        <!-- Scene 4 -->
+        <div class="scene">
+            <img src="img/prologue/start.png" class="fade-img">
+            <p class="fade-text">
+                「よーし！ お宝探しの冒険に出発だ！」
+            </p>
+        </div>
+
+        <button id="nextBtn" class="next-btn">つづける</button>
+
+    </div><!-- wrapper -->
+
+    <script src="js/storage.js"></script>
+    <script>
+        const scenes = document.querySelectorAll(".scene");
+        let index = 0;
+
+        // 最初のシーンを表示
+        scenes[0].classList.add("show");
+
+        document.body.addEventListener("click", () => {
+            // 最後のシーンはクリックで進めない
+            if (index >= scenes.length - 1) return;
+
+            // 現在のシーンをフェードアウト
+            scenes[index].classList.remove("show");
+            scenes[index].classList.add("hide");
+
+            // 次のシーンをフェードイン
+            index++;
+            scenes[index].classList.add("show");
+        });
+
+        // 「つづける」→ ステージセレクトへ
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            setFlag("prologue_seen");
+            location.href = "select.html";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ChocoGame - Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <h1>ギャラリー</h1>
+
+        <div class="gallery-list">
+
+            <!-- ステージ1の画像（見たことがある場合のみ表示） -->
+            <div class="gallery-item" id="g1" style="display:none;">
+                <img src="img/stage1/intro/scene1.png">
+                <p>ステージ1：シーン1</p>
+            </div>
+
+            <div class="gallery-item" id="g2" style="display:none;">
+                <img src="img/stage1/intro/scene2.png">
+                <p>ステージ1：シーン2</p>
+            </div>
+
+            <!-- ステージ2 -->
+            <div class="gallery-item" id="g3" style="display:none;">
+                <img src="img/stage2/intro/scene1.png">
+                <p>ステージ2：シーン1</p>
+            </div>
+
+            <!-- ステージ3 -->
+            <div class="gallery-item" id="g4" style="display:none;">
+                <img src="img/stage3/intro/scene1.png">
+                <p>ステージ3：シーン1</p>
+            </div>
+
+        </div>
+
+        <button onclick="location.href='menu.html'">メニューに戻る</button>
+
+    </div><!-- wrapper -->
+
+    <script src="js/storage.js"></script>
+    <script>
+        // 見たことのある画像だけ表示
+        if (getFlag("gallery_stage1_scene1")) document.getElementById("g1").style.display = "block";
+        if (getFlag("gallery_stage1_scene2")) document.getElementById("g2").style.display = "block";
+        if (getFlag("gallery_stage2_scene1")) document.getElementById("g3").style.display = "block";
+        if (getFlag("gallery_stage3_scene1")) document.getElementById("g4").style.display = "block";
+    </script>
+
+</body>
+</html>

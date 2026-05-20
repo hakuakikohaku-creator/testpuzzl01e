@@ -1,16 +1,11 @@
-/* ============================================================
-   style.css
-   ChocoGame 全画面共通デザイン
-   ============================================================ */
-
-/* ------------------------------
-   基本設定
------------------------------- */
+/* ============================
+   全ページ共通：固定枠 wrapper
+   ============================ */
 body {
     margin: 0;
     padding: 0;
-    font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
-    background-color: #222;
+    background: #111;
+    font-family: "メイリオ", sans-serif;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -18,21 +13,21 @@ body {
     height: 100vh;
 }
 
-/* ------------------------------
-   ★ 全画面を白い枠で囲む（固定サイズ）
------------------------------- */
+/* 白い枠（520×720） */
 .wrapper {
-    width: 520px;       /* 固定幅 */
-    height: 720px;      /* 固定高さ（パズル画面基準） */
+    width: 520px;
+    height: 720px;
     padding: 20px;
     border: 4px solid #fff;
     border-radius: 12px;
-    box-sizing: border-box;
     background-color: #222;
+    box-sizing: border-box;
 
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
     overflow: hidden;
 }
 
@@ -46,137 +41,32 @@ body {
     }
 }
 
-/* ------------------------------
-   各ページ共通コンテナ
------------------------------- */
-#title-container,
-#select-container,
-#puzzle-container,
-#ranking-container {
-    text-align: center;
-    width: 100%;
-}
-
-/* ------------------------------
-   タイトル文字
------------------------------- */
-#title-text,
-.page-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-/* ------------------------------
-   パズルタイトル + サムネイル配置
------------------------------- */
-.puzzle-header {
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-/* タイトルは中央固定 */
-.puzzle-header .page-title {
-    text-align: center;
-    width: 100%;
-    margin: 0;
-}
-
-/* サムネイルは右上に固定 */
-.puzzle-preview {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border: 2px solid #fff;
-    border-radius: 6px;
-}
-
-/* ------------------------------
+/* ============================
    ボタン共通
------------------------------- */
-.menu-btn {
-    display: block;
-    width: 80%;
-    max-width: 300px;
-    margin: 10px auto;
-    padding: 15px 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    background-color: #3b82f6;
-    border: none;
+   ============================ */
+button {
+    font-size: 20px;
+    padding: 12px 24px;
+    margin: 10px 0;
     border-radius: 8px;
+    border: none;
+    background: #4a90e2;
+    color: white;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    width: 100%;
 }
 
-.menu-btn:hover {
-    background-color: #60a5fa;
+button:disabled {
+    background: #777;
+    cursor: default;
 }
 
-/* 小型ボタン（パズル画面用） */
-.menu-btn.small {
-    width: 30%;
-    display: inline-block;
-    margin: 5px;
-    padding: 10px 0;
-    font-size: 1rem;
+/* タイトル画面用 */
+.title-container {
+    margin-top: 200px;
+    text-align: center;
 }
 
-/* 戻るボタン */
-.back-btn {
-    background-color: #ef4444;
-}
-
-.back-btn:hover {
-    background-color: #f87171;
-}
-
-/* ------------------------------
-   パズル画面
------------------------------- */
-#puzzle-canvas {
-    display: block;
-    margin: 0 auto 20px;
-    background-color: #000;
-    border: 4px solid #fff;
-    box-sizing: border-box;
-}
-
-/* ------------------------------
-   フェイルセーフUI
------------------------------- */
-#error-box {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-#error-box p {
-    font-size: 1.2rem;
+h1 {
     margin-bottom: 20px;
-}
-
-/* ------------------------------
-   ランキング画面
------------------------------- */
-#ranking-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto 20px;
-    text-align: left;
-    max-width: 300px;
-}
-
-#ranking-list li {
-    background-color: #444;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 6px;
 }
